@@ -17,7 +17,7 @@ SQLite is the source of truth for idempotency. Each source message is keyed by `
 - Telegram input uses Telethon as a user API client. This avoids Telegram Bot API download limits for larger source files.
 - Audio conversion uses an installed `ffmpeg` executable and `libmp3lame`.
 - NotebookLM uses `notebooklm-py` with a saved `storage_state.json`. The library is unofficial and may break if Google changes internal APIs.
-- Telegram output uses Bot API `sendAudio` and `sendMessage`.
+- Telegram output uses Bot API `sendAudio` with a short caption.
 
 ## Public CLI
 
@@ -81,4 +81,3 @@ Unit tests cover:
 - pipeline success, dry-run, skip, and failure/retry behavior.
 
 Manual acceptance requires one real `doctor`, one `run-once --dry-run`, and one real source-channel audio message producing a NotebookLM notebook, summary, generated MP3, and Telegram delivery.
-
